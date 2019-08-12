@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        class Link {
+            constructor(href, title) {
+                this.href = href;
+                this.title = title;
+                this.link = this.create(href, title);
+            }
+            create() {
+                let a = document.createElement('a')
+                a.href = this.href
+                a.text = this.title;
+                return a
+            }
+
+            appendBody() {
+                document.body.appendChild(this.link)
+            }
+            event() {
+                this.link.onmouseover = () => {
+                    this.title += this.title;
+                    this.link.text = this.title;
+                }
+            }
+        }
+
+        let link1 = new Link("https://google.com", 'firstlink ')
+        link1.appendBody()
+        link1.event()
+
+        let link2 = new Link("https://translate.google.com", 'secondlink ')
+        link2.appendBody()
+        link2.event()
+
+        let link3 = new Link("https://google.com.ua", 'thirdlink ')
+        link3.appendBody()
+        link3.event()
+
+        let link4 = new Link("https://google.com.ua/maps/", 'fourthlink ')
+        link4.appendBody()
+        link4.event()
+
+        let link5 = new Link("https://google.com/doodles/", 'fifthlink ')
+        link5.appendBody()
+        link5.event()
+
+    </script>
+</body>
+
+</html>

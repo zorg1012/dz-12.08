@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        
+        class Link {
+            constructor(href, title) {
+                this.href = href;
+                this.title = title;
+                this.link = this.create(href, title);
+                this.clicks = 0
+                
+            }
+            create() {
+                let a = document.createElement('a')
+                a.href = this.href
+                a.text = this.title;
+                return a
+            }
+
+            appendBody() {
+                document.body.appendChild(this.link)
+            }
+            event() {
+                this.link.onclick = (e) => {
+                    e.preventDefault()
+                    ++this.clicks
+                    if (this.clicks < 4){
+                    this.link.text +=  "(" + this.link.href + ")"
+                    //}else {
+                      //  this.link.onclick = null
+                    }
+                    
+                }
+            }
+        }
+
+        let link1 = new Link("https://google.com", 'firstlink ')
+        link1.appendBody()
+        link1.event()
+
+        let link2 = new Link("https://google.com", 'secondlink ')
+        link2.appendBody()
+        link2.event()
+
+        let link3 = new Link("https://google.com", 'thirdlink ')
+        link3.appendBody()
+        link3.event()
+
+        let link4 = new Link("https://google.com", 'fourthlink ')
+        link4.appendBody()
+        link4.event()
+
+        let link5 = new Link("https://google.com", 'fifthlink ')
+        link5.appendBody()
+        link5.event()
+    </script>
+
+</body>
+
+</html>
