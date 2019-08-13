@@ -31,9 +31,10 @@
     <p class="p">19</p>
     <p class="p">20</p>
     <script>
-        window.onclick = (e) => {
+        for (var i = 0; i<document.getElementsByTagName("p").length; i++){
+            document.getElementsByTagName("p")[i].onclick = (e) => {
             e.target.innerText *= e.target.innerText
-        }
+        }}
     </script>
 
 
